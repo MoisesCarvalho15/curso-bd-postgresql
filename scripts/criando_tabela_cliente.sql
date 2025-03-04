@@ -90,3 +90,24 @@ update cliente set idbairro = 1 where idcliente in (1, 12, 13); -- idbairro 1 ->
 update cliente set idbairro = 2 where idcliente in (2, 3, 6, 8, 9); -- idbairro 2 -> Centro
 update cliente set idbairro = 3 where idcliente in (4, 5); -- idbairro 3 -> São Pedro
 update cliente set idbairro = 4 where idcliente = 7; -- idbairro 4 -> Santa Rosa
+
+-- Apagando os dados da colunas uf e municipio
+alter table cliente drop municipio;
+alter table cliente drop uf;
+
+-- Adicionando um novo campo na tabela municipio
+alter table cliente add idmunicipio integer;
+
+-- Criando uma chave estrangeira para o idmunicipio
+alter table cliente add constraint fk_cliente_municipio foreign key (idmunicipio) references municipio (idmunicipio);
+
+-- Atualizando os dados do compo idmunicipio
+update cliente set idmunicipio = 1 where idcliente in (1, 2, 10, 11); -- idmunicipio 1 -> Porto União
+update cliente set idmunicipio = 2 where idcliente in (3, 12); -- idmunicipio 2 -> Canoinhas
+update cliente set idmunicipio = 3 where idcliente = 4; -- idmunicipio 3 -> Porto Vitória
+update cliente set idmunicipio = 4 where idcliente = 5; -- idmunicipio 4 -> General Carneiro
+update cliente set idmunicipio = 5 where idcliente in (6, 13); -- idmunicipio -> São Paulo
+update cliente set idmunicipio = 6 where idcliente = 7; -- idmunicipio -> Rio de Janeiro
+update cliente set idmunicipio = 7 where idcliente = 8; -- idmunicipio -> Uberlândia
+update cliente set idmunicipio = 8 where idcliente = 9; -- idmunicioio -> Porto Alegre
+update cliente set idmunicipio = 9 where idcliente in (14, 15); -- idmunicipio -> União da Vitória 
