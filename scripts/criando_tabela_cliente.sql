@@ -75,3 +75,18 @@ alter table cliente add constraint fk_cln_idcomplemento foreign key (idcomplemen
 -- Atualizando os dados do compo idcomplemento
 update cliente set idcomplemento = 1 where idcliente in (1, 4, 9, 13); -- idcomplemento 1 -> Casa
 update cliente set idcomplemento = 2 where idcliente in (2, 3,7); -- idcomplemento 2 -> Apartamento
+
+-- Apagando os dados do campo bairro
+alter table cliente drop bairro;
+
+-- Adicionando um novo campo na tabela
+alter table cliente add idbairro integer;
+
+-- Criando uma nova chave estrangeira do campo bairro da tabela cliente
+alter table cliente add constraint fk_cln_idbairro foreign key (idbairro) references bairro (idbairro);
+
+-- Atualizando os dados do compo idbairro
+update cliente set idbairro = 1 where idcliente in (1, 12, 13); -- idbairro 1 -> Cidade nova
+update cliente set idbairro = 2 where idcliente in (2, 3, 6, 8, 9); -- idbairro 2 -> Centro
+update cliente set idbairro = 3 where idcliente in (4, 5); -- idbairro 3 -> São Pedro
+update cliente set idbairro = 4 where idcliente = 7; -- idbairro 4 -> Santa Rosa
