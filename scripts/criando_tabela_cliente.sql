@@ -62,3 +62,16 @@ update cliente set idnacionalidade = 1 where idcliente in (1, 2, 3, 4, 6, 10, 11
 update cliente set idnacionalidade = 2 where idcliente in (5, 7); -- idnacionalidade 2 -> Italiana
 update cliente set idnacionalidade = 3 where idcliente = 8; -- idnacionalidade 3 -> Norte-americana
 update cliente set idnacionalidade = 4 where idcliente in (9, 13); -- idnacionalidade 4 -> Alemã
+
+-- Apagando os dados do campo complemento
+alter table cliente drop complemento;
+
+-- Adicionando um novo campo na tabela
+alter table cliente add idcomplemento integer;
+
+-- Criando uma chave estrangeira do campo complemento da tabela cliente
+alter table cliente add constraint fk_cln_idcomplemento foreign key (idcomplemento) references complemento (idcomplemento);
+
+-- Atualizando os dados do compo idcomplemento
+update cliente set idcomplemento = 1 where idcliente in (1, 4, 9, 13); -- idcomplemento 1 -> Casa
+update cliente set idcomplemento = 2 where idcliente in (2, 3,7); -- idcomplemento 2 -> Apartamento
