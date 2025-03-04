@@ -20,3 +20,30 @@ create table cliente (
 	-- pk -> Primary Key
 	constraint pk_cln_idcliente primary key (idcliente)
 );
+
+-- Alterando o nome de uma coluna da tabela
+alter table cliente rename column profissao to idprofissao;
+
+-- Dados da coluna profissao
+-- Estudante id  -> 1, 9, 10, 12, 15, 17
+-- Engenheiro id -> 2
+-- Pedreiro id   -> 3
+-- Jornalista id -> 4, 5
+-- Professor id  -> 6, 7, 8, 13
+-- Null id 	     -> 11, 14
+
+-- Apagando o campo da coluna profissao
+alter table cliente drop idprofissao;
+
+-- Criando um novo campo com o tipo correto de dado
+alter table cliente add idprofissao integer;
+
+-- Relacionando a chave estrangeira com a chave primária da tabela de profissao
+alter table cliente add constraint fk_cln_idprofissao foreign key (idprofissao) references profissao (idprofissao);
+
+-- Atualizando os dados do campo idprofissao
+update cliente set idprofissao = 1 where idcliente in (1, 9, 10, 12, 15, 17); -- idprofissao 1 -> Estudante
+update cliente set idprofissao = 2 where idcliente = 2; -- idprofissao 2 -> Engenheiro
+update cliente set idprofissao = 3 where idcliente = 3; -- idprofissao 3 -> Pedreiro
+update cliente set idprofissao = 4 where idcliente in (4, 5); -- idprofissao 4 -> Jornalista
+update cliente set idprofissao = 5 where idcliente in (6, 7, 8, 13); -- idprofissaoo 5 -> Professor
