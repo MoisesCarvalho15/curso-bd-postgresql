@@ -47,3 +47,18 @@ update cliente set idprofissao = 2 where idcliente = 2; -- idprofissao 2 -> Enge
 update cliente set idprofissao = 3 where idcliente = 3; -- idprofissao 3 -> Pedreiro
 update cliente set idprofissao = 4 where idcliente in (4, 5); -- idprofissao 4 -> Jornalista
 update cliente set idprofissao = 5 where idcliente in (6, 7, 8, 13); -- idprofissaoo 5 -> Professor
+
+-- Apagando os dados do campo de nacionalidade
+alter table cliente drop nacionalidade;
+
+-- Adicionando um novo campo na tabela
+alter table cliente add idnacionalidade integer;
+
+-- Criando a chave estrangeira do campo idnacionalidade da tabela cliente
+alter table cliente add constraint fk_cln_idnacionalidade foreign key (idnacionalidade) references nacionalidade (idnacionalidade);
+
+-- Atualizando os dados do campo idnacionalidade
+update cliente set idnacionalidade = 1 where idcliente in (1, 2, 3, 4, 6, 10, 11, 14); --  idnacionalidade 1 -> Brasileira
+update cliente set idnacionalidade = 2 where idcliente in (5, 7); -- idnacionalidade 2 -> Italiana
+update cliente set idnacionalidade = 3 where idcliente = 8; -- idnacionalidade 3 -> Norte-americana
+update cliente set idnacionalidade = 4 where idcliente in (9, 13); -- idnacionalidade 4 -> Alemã
