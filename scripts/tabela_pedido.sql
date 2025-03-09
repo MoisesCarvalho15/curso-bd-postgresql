@@ -31,3 +31,26 @@ insert into pedido (idpedido, data_pedido, valor, idcliente, idtransportadora, i
 
 -- Visualizando os dados da tabela de pedido
 select * from pedido;
+
+-- ## Funções Agregadas ##
+
+-- maior e menor valor
+select min(valor), max(valor) from pedido;
+
+-- somar todos os valores
+select sum(valor) from pedido;
+
+-- média dos valores
+select avg(valor) from pedido;
+
+-- contagem dos registros
+select count(idpedido) from pedido;
+
+-- contagem através de um valor específico
+select count(idpedido) from pedido where idvendedor = 5;
+
+-- agrupamento | somando os valores dos pedidos através do idcliente | ordem crescente
+select idcliente, sum(valor) from pedido group by idcliente order by idcliente asc;
+
+-- agrupamento | filtrando somente os clientes onde a soma é maior que 500
+select idcliente, sum(valor) from pedido group by idcliente having sum(valor) > 500;
