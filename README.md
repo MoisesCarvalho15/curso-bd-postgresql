@@ -7,8 +7,13 @@ Este é um curso da plataforma Udemy.<br>
 
 ## RoadMap do curso
 
-- [Como criar uma tabela](scripts/criando_tabela_cliente.sql)
-- [Inserindo dados na tabela](scripts/insercao_de_dados_tabela_cliente.sql)
-- [Consultando os dados da tabela](scripts/consultas_na_tabela_cliente.sql)
-- [Exercícios sobre consulta na tabela](scripts/exercicios_de_consulta_tabela_cliente.sql)
-- [Atualizando e deletando dados da tabela](scripts/update_e_delete_tabela_cliente.sql)
+- Criando uma tabela
+- Inserindo dados na tabela
+- Consultando os dados da tabela
+- [Exercícios de consultas 01](scripts/exercicios_de_consulta_tabela_cliente.sql)
+- Atualizando e deletando dados da tabela
+- [Exercícios de update e delete](scripts/exercicios_update_delete_tabela_cliente.sql)
+- Criando Chave Estrangeira (foreign key)
+- [Exercícios de consultas 02](scripts/exercicios_consultas_2.sql)
+- Funções Agregadas (avg, count, sum, min, max, group by)
+- [Exercícios sobre funções agregadas](scripts/exercicios_funcoes_agregadas.sql)
