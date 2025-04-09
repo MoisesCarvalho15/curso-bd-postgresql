@@ -17,3 +17,5 @@ Este é um curso da plataforma Udemy.<br>
 - [Exercícios de consultas 02](scripts/exercicios_consultas_2.sql)
 - Funções Agregadas (avg, count, sum, min, max, group by)
 - [Exercícios sobre funções agregadas](scripts/exercicios_funcoes_agregadas.sql)
+- Trabalhando com Joins (left join, inner join, right join)
+- [Exercícios sobre Joins](scripts/exercicios_joins.sql)
