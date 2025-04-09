@@ -111,3 +111,22 @@ update cliente set idmunicipio = 6 where idcliente = 7; -- idmunicipio -> Rio de
 update cliente set idmunicipio = 7 where idcliente = 8; -- idmunicipio -> Uberlândia
 update cliente set idmunicipio = 8 where idcliente = 9; -- idmunicioio -> Porto Alegre
 update cliente set idmunicipio = 9 where idcliente in (14, 15); -- idmunicipio -> União da Vitória 
+
+
+-- ## Trabalhando com Joins ##
+select 
+	cln.nome as cliente, 
+	prf.nome as profissao
+from
+	cliente as cln
+left outer join -- Relacionando com a tabela que está na esquerda
+	profissao as prf on cln.idprofissao = prf.idprofissao
+
+-- Inner Join
+select 
+	cln.nome as cliente, 
+	prf.nome as profissao
+from
+	cliente as cln
+inner join -- Obriga que tenha um relacionamento entre as tabelas (dados null não aparecem)
+	profissao as prf on cln.idprofissao = prf.idprofissao
